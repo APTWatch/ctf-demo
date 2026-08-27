@@ -1,0 +1,223 @@
+:root {
+  --ink: #161e19;
+  --ink-soft: #576259;
+  --paper: #f2f4f1;
+  --surface: #ffffff;
+  --border: #dde3dd;
+  --accent: #1f7a4d;
+  --accent-dark: #145536;
+  --accent-soft: #e6f1ea;
+  --danger: #b3261e;
+  --danger-soft: #fbeceb;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(20, 30, 25, 0.04), 0 10px 24px -18px rgba(20, 30, 25, 0.25);
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent-dark);
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+}
+a:hover { text-decoration-color: currentColor; }
+
+/* Top bar */
+
+header.site {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg { flex-shrink: 0; }
+
+.logo .name {
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--ink);
+  line-height: 1.15;
+}
+
+.logo .sub {
+  display: block;
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+/* Layout */
+
+main {
+  max-width: 640px;
+  margin: 56px auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 1.4rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  margin: 24px 0 10px;
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+p.lede {
+  margin: 0 0 22px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+/* Forms */
+
+label {
+  display: block;
+  margin: 0 0 6px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.field { margin-bottom: 16px; }
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--surface);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+button {
+  margin-top: 6px;
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 120ms ease, transform 80ms ease;
+}
+button:hover { background: var(--accent-dark); }
+button:active { transform: translateY(1px); }
+
+.error {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  display: none;
+}
+.error:not(:empty) { display: block; }
+
+/* Misc UI bits */
+
+.muted { color: var(--ink-soft); font-size: 0.85rem; }
+
+.hint {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--paper);
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+.hint strong { color: var(--ink); font-weight: 650; }
+
+.note-box {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 4px;
+  word-break: break-all;
+  font-family: ui-monospace, Consolas, "SFMono-Regular", monospace;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.profile-row {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--border);
+}
+.profile-row:last-of-type { border-bottom: none; }
+.profile-row span.label {
+  color: var(--ink-soft);
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.actions { margin: 18px 0; }
+
+footer.site {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  margin: 48px 0 24px;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "greenvalley-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GreenValley High Student Portal - beginner web CTF demo backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

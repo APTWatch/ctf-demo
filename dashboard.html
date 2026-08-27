@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard - GreenValley High Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="28" height="28" rx="7" fill="#1f7a4d"/>
+      <text x="14" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#ffffff">GV</text>
+    </svg>
+    <span class="name">GreenValley High<span class="sub">Student Portal</span></span>
+  </div>
+</header>
+
+<main>
+  <div class="card" id="profileCard">
+    <h1>Dashboard</h1>
+    <div id="profileContent">Loading profile...</div>
+  </div>
+
+  <div class="card" id="adminToolsCard" style="display:none;margin-top:16px;">
+    <h2>Admin Tools</h2>
+    <div class="note-box" id="adminNote"></div>
+  </div>
+
+  <div class="hint">
+    <strong>Note:</strong> this page loads a profile based on the <code>id</code> in the URL. Nothing here checks whether that profile is actually yours.
+  </div>
+  <p class="muted" style="margin-top:14px;"><a href="index.html">Log out</a></p>
+</main>
+
+<footer class="site">GreenValley High School &middot; Student Portal</footer>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
