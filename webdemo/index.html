@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GreenValley High Student Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="28" height="28" rx="7" fill="#1f7a4d"/>
+      <text x="14" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#ffffff">GV</text>
+    </svg>
+    <span class="name">GreenValley High<span class="sub">Student Portal</span></span>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <h1>Sign in</h1>
+    <p class="lede">Use your school account to access your dashboard.</p>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="off">
+      </div>
+
+      <div class="error" id="errorMsg"></div>
+
+      <button type="submit">Log in</button>
+    </form>
+  </div>
+
+  <p class="muted" style="margin-top:16px;">Trouble logging in? Contact IT support.</p>
+</main>
+
+<footer class="site">GreenValley High School &middot; Student Portal</footer>
+
+<!--
+  TODO (dave): remove the QA test account before demo day!
+  test login -- ghost_admin / Fall2024!
+-->
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var user = document.getElementById('username').value.trim();
+    var pass = document.getElementById('password').value;
+    var errorMsg = document.getElementById('errorMsg');
+    errorMsg.textContent = '';
+
+    fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ username: user, password: pass })
+    })
+      .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          window.location.href = 'dashboard.html?id=' + encodeURIComponent(result.data.id);
+        } else {
+          errorMsg.textContent = 'Invalid username or password.';
+        }
+      })
+      .catch(function () {
+        errorMsg.textContent = 'Something went wrong. Is the server running?';
+      });
+  });
+</script>
+
+</body>
+</html>
